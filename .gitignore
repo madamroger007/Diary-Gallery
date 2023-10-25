@@ -1,4 +1,4 @@
 .env
 /.personal
-/static/img/public/galery/*
-/static/img/public/profile/*
+/static/img/public/galery/
+/static/img/public/profile/
