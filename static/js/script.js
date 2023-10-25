@@ -33,7 +33,7 @@ const listing = () => {
       const { articles } = response;
       console.log(articles);
       articles.forEach((element) => {
-        const { img, profile, author,title, description } = element;
+        const { img, profile, author,title, description, time_create } = element;
         const temp_html = `
         <div class="col">
         <div class="card h-100" title="${author}">
@@ -46,7 +46,7 @@ const listing = () => {
           </div>
           <div class="card-footer">
           <div class="d-flex flex-wrap justify-content-between align-items-center">
-          <small class="text-time">Last updated 3 mins ago</small>
+          <small class="text-time">${time_create || "???"}</small>
           <img src="../${profile}" class="image" alt="adam">
           </div>
           </div>
