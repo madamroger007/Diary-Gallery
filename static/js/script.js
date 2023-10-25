@@ -37,7 +37,9 @@ const listing = () => {
         const temp_html = `
         <div class="col">
         <div class="card h-100" title="${author}">
-          <img src="../${img}" class="card-img-top" alt="${author}">
+        <div class="pt-2 px-2 ">
+        <img src="../${img}" class="card-img-top img-frame" alt="${author}">
+        </div>
           <div class="card-body">
             <h5 class="card-title">${title}</h5>
             <p class="card-text">${description}</p>
