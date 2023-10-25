@@ -33,7 +33,9 @@ def showDiary():
 
 @app.route('/diary', methods=["POST"])
 def SaveDiary():
-    today = datetime.now().strftime("%Y-%m-%d-%H-%M-%S")
+    time = datetime.now()
+    today = time.strftime("%Y-%m-%d-%H-%M-%S")
+    time_post = time.strftime("%A, %d %B %Y")
 
     file = request.files.get('file_give')
     profile = request.files.get('profile_give')
@@ -51,12 +53,14 @@ def SaveDiary():
     profile_filename =f"static/img/public/profile/profile-{today}.{extention}"
     profile.save(profile_filename)
 
+   
     doc = {
         'img' : filename,
         "profile" : profile_filename,
         'author': author_receive,
         'title': title_receive,
-        'description': descrip_receive
+        'description': descrip_receive,
+        'time_create' : time_post
     }
     db.insert_one(doc)
     return jsonify({
