@@ -66,10 +66,9 @@ function posting() {
   const getAuthors = $("#author").val();
   const getfile = $("#images").prop("files")[0];
   const getDescription = $("#img-description").val();
-  if (!getTitle)
-    return customAlert.alert("Your Title is undefined.", "Hi, There");
-  if (!getDescription)
-    return customAlert.alert("Your Description is undefined.", "Hi, There");
+  if (!getTitle || !getDescription || !getProfile || !getfile || !getAuthors)
+    return customAlert.alert("Your data is not complete", "Hi There");
+
 
   let form_data = new FormData();
   form_data.append("file_give", getfile);

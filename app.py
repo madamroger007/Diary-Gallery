@@ -26,7 +26,7 @@ def home():
 @app.route('/diary', methods=["GET"])
 def showDiary():
     articles = list(db.find({}, {"_id":False}))
-    # db.delete_many({})
+    
     return jsonify({
         "articles": articles,
     })
